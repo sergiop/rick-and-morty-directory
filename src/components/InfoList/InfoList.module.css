@@ -1,0 +1,32 @@
+.list {
+  padding-left: 0;
+  margin: 0 0 .8rem;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  list-style-type: none;
+  border-bottom: .0631rem solid var(--color-line);
+  padding: .2rem 0;
+}
+
+.list li:last-child {
+  border-bottom: .0631rem solid var(--color-line);
+}
+
+.values {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  margin-right: 0.4rem;
+  min-width: 5rem;
+  white-space: nowrap;
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}

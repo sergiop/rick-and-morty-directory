@@ -1,0 +1,25 @@
+.link {
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  padding: .25rem 1rem;
+  font-size: .8rem;
+  font-weight: 600;
+  transition: all 200ms ease;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+}
+
+.link:visited {
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+}
+
+.link:hover {
+  background-color: var(--color-secondary-lighten);
+}

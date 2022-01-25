@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Rick and Morty Characters Directory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app shows the Rick and Morty character list using [The Rick and Morty API
+](https://rickandmortyapi.com/)
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- **Node:** please install and use Node > v14 to run and build this app. Follow installation instructions on the [Node website](https://nodejs.org/en/), or use [NVM](https://github.com/nvm-sh/nvm) if you are running a *nix os.
+- **Yarn:** this app needs **Yarn Classic** in order to work. Globally install it following the instructions on the [official website](https://classic.yarnpkg.com/en/docs/install/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Quick start
 
-### `npm test`
+1. Install the project dependencies with `yarn install`.
+2. Start the application in development mode with `yarn start`.
+3. Open your browser at http://localhost:3000/
+4. Enjoy
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Available commands
 
-### `npm run build`
+| Command      | Description                                                          |
+| -------------| ---------------------------------------------------------------------|
+| `yarn start` | Start the application in development mode on http://localhost:3000/. |
+| `yarn build` | Build the application to `/build` folder.                            |
+| `yarn lint`  | Perform a code linting with `eslint`.                                |
+| `yarn test`  | Launch Jest test runner in the interactive watch mode.               |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
