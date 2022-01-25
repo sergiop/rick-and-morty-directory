@@ -11,17 +11,17 @@
   transition: all 200ms ease;
   border-radius: 1rem;
   text-decoration: none;
-  color: var(--color-text);
+  color: #fff;
   background-color: var(--color-secondary);
 }
 
 .link:visited {
-  color: var(--color-text);
+  color: #fff;
   background-color: var(--color-secondary);
 }
 
 .link:hover {
-  background-color: var(--color-secondary-lighten);
+  background-color: var(--color-secondary-darken);
 }
 
 @media only screen and (min-width: 450px) {

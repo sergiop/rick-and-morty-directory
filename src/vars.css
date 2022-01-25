@@ -2,7 +2,7 @@
   --color-primary: hsl(191, 54%, 50%);
   --color-primary-darken: hsl(191, 54%, 30%);
   --color-secondary: hsl(73, 68%, 54%);
-  --color-secondary-lighten: hsl(73, 68%, 80%);
+  --color-secondary-darken: hsl(73, 68%, 40%);
   --color-text: #6e6e6e;
   --color-page-bg: #efefef;
   --color-line: #ddd;
