@@ -45,7 +45,7 @@ export const CharactersRoot = () => {
     loading: charactersIsLoading,
     hasNextPage: characters ? hasNextPage(characters) : true,
     onLoadMore: () => getCharacters(nextPageNumber),
-    rootMargin: '0px 0px 400px 0px',
+    rootMargin: '0px 0px 800px 0px',
   })
 
   return (
