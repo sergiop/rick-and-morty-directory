@@ -30,10 +30,9 @@ export const CharacterRoot = () => {
     if (state) {
       setCharacter(state)
     } else {
-      get<Character>(`/character/${characterId}`)
-        .then((data) => {
-          setCharacter(data)
-        })
+      get<Character>(`/character/${characterId}`).then((data) => {
+        setCharacter(data)
+      })
     }
   }, [characterId, state])
 
@@ -41,11 +40,12 @@ export const CharacterRoot = () => {
     if (character) {
       if (character.location.url) {
         setLocationIsLoading(true)
-        get<Location>(`/location/${getLocationId(character.location.url)}`)
-          .then((data) => {
-            setLocation(data)
-            setLocationIsLoading(false)
-          })
+        get<Location>(
+          `/location/${getLocationId(character.location.url)}`
+        ).then((data) => {
+          setLocation(data)
+          setLocationIsLoading(false)
+        })
       } else {
         setLocation('unknown')
       }
@@ -56,11 +56,12 @@ export const CharacterRoot = () => {
     if (character) {
       if (character.origin.url) {
         setOriginIsLoading(true)
-        get<Location>(`/location/${getLocationId(character.origin.url)}`)
-          .then((data) => {
+        get<Location>(`/location/${getLocationId(character.origin.url)}`).then(
+          (data) => {
             setOrigin(data)
             setOriginIsLoading(false)
-          })
+          }
+        )
       } else {
         setOrigin('unknown')
       }
@@ -72,15 +73,13 @@ export const CharacterRoot = () => {
       const episodesIds = getCharacterEpisodesIds(character.episode)
 
       if (episodesIds.length > 1) {
-        get<Episode[]>(`/episode/${episodesIds.toString()}`)
-          .then((data) => {
-            setEpisodes(data)
-          })
+        get<Episode[]>(`/episode/${episodesIds.toString()}`).then((data) => {
+          setEpisodes(data)
+        })
       } else {
-        get<Episode>(`/episode/${episodesIds.toString()}`)
-          .then((data) => {
-            setEpisodes([data])
-          })
+        get<Episode>(`/episode/${episodesIds.toString()}`).then((data) => {
+          setEpisodes([data])
+        })
       }
     }
   }, [character])
@@ -108,5 +107,7 @@ export const CharacterRoot = () => {
         episodes={episodes}
       />
     </>
-  ) : <Loading />
+  ) : (
+    <Loading />
+  )
 }

@@ -13,9 +13,7 @@ export const InfoList = ({ list }: InfoListProps) => (
       // eslint-disable-next-line react/no-array-index-key
       <li key={i}>
         <div className={styles.values}>
-          <div className={styles.name}>
-            {l.title}
-          </div>
+          <div className={styles.name}>{l.title}</div>
           <div>{l.value}</div>
         </div>
       </li>

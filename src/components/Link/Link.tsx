@@ -6,7 +6,9 @@ export const Link = (props: LinkProps) => {
   const { children } = props
 
   return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-    <RouterLink {...props} className={styles.link}>{children}</RouterLink>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <RouterLink {...props} className={styles.link}>
+      {children}
+    </RouterLink>
   )
 }

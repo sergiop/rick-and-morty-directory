@@ -11,9 +11,8 @@ interface CharacterItemProps {
 }
 
 export const CharacterItem = ({ character }: CharacterItemProps) => {
-  const {
-    image, name, location, origin, gender, species, id, status,
-  } = character
+  const { image, name, location, origin, gender, species, id, status } =
+    character
 
   return (
     <Card>
@@ -48,10 +47,7 @@ export const CharacterItem = ({ character }: CharacterItemProps) => {
             ]}
           />
 
-          <Link
-            to={locations.character(id)}
-            state={character}
-          >
+          <Link to={locations.character(id)} state={character}>
             Details
           </Link>
         </div>

@@ -4,15 +4,17 @@
     "react-app/jest",
     "airbnb",
     "airbnb/hooks",
+    "prettier",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
     "react",
+    "prettier",
     "simple-import-sort"
   ],
   "rules": {
-    "semi": ["error", "never"],
+    "semi": "off",
     "react/require-default-props": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
@@ -23,7 +25,13 @@
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
     "sort-imports": "off",
-    "import/order": "off"
+    "import/order": "off",
+    "prettier/prettier": [
+      "error", {
+        "semi": false,
+        "singleQuote": true
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

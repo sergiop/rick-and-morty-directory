@@ -21,8 +21,8 @@ export const CharactersRoot = () => {
 
   const getCharacters = (pageNumber: number) => {
     setCharactersIsLoading(true)
-    get<PaginatedResource<Character[]>>(`/character?page=${pageNumber}`)
-      .then((data) => {
+    get<PaginatedResource<Character[]>>(`/character?page=${pageNumber}`).then(
+      (data) => {
         setCharacters({
           ...characters,
           info: data.info,
@@ -32,13 +32,14 @@ export const CharactersRoot = () => {
           ],
         })
         setCharactersIsLoading(false)
-      })
+      }
+    )
   }
 
-  const nextPageNumber = (characters
-    && characters.info
-    && characters.info.next)
-    ? getPageNumber(characters.info.next) : 1
+  const nextPageNumber =
+    characters && characters.info && characters.info.next
+      ? getPageNumber(characters.info.next)
+      : 1
 
   const [sentryRef] = useInfiniteScroll({
     loading: charactersIsLoading,
@@ -49,11 +50,11 @@ export const CharactersRoot = () => {
 
   return (
     <>
-      {
-        characters
-        && characters.results
-        && characters.results.map((c) => <CharacterItem character={c} key={c.id} />)
-      }
+      {characters &&
+        characters.results &&
+        characters.results.map((c) => (
+          <CharacterItem character={c} key={c.id} />
+        ))}
 
       {(charactersIsLoading || hasNextPage) && (
         <div ref={sentryRef}>

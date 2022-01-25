@@ -109,16 +109,13 @@ export const CharacterDetail = ({
 
         {episodes ? (
           <div className={styles.list}>
-            {episodes.map((e) => e.name).join(', ')}
-            .
+            {episodes.map((e) => e.name).join(', ')}.
           </div>
         ) : (
           <Loading />
         )}
 
-        <Link to={locations.characters}>
-          Back to index
-        </Link>
+        <Link to={locations.characters}>Back to index</Link>
       </div>
     </div>
   </Card>
