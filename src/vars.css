@@ -1,8 +1,9 @@
 :root {
-  --color-primary: #3aabc3;
-  --color-secondary: #b7d93a;
-  --color-secondary-lighten: #dff19c;
-  --color-text: #444;
+  --color-primary: hsl(191, 54%, 50%);
+  --color-primary-darken: hsl(191, 54%, 30%);
+  --color-secondary: hsl(73, 68%, 54%);
+  --color-secondary-lighten: hsl(73, 68%, 80%);
+  --color-text: #6e6e6e;
   --color-page-bg: #efefef;
   --color-line: #ddd;
   --shadow-1: rgba(0, 0, 0, 0.05)

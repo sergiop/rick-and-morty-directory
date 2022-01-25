@@ -1,0 +1,23 @@
+.heading {
+  margin: 0;
+  margin-bottom: .4rem;
+}
+
+h1.heading {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+h2.heading {
+  font-size: 1rem;
+}
+
+.heading a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.heading a:hover {
+  color: var(--color-primary-darken);
+}

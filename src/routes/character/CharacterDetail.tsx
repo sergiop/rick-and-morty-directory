@@ -1,12 +1,13 @@
 import { Image } from '../../components/Avatar/Avatar'
 import { Card } from '../../components/Card/Card'
 import { Cols } from '../../components/Cols/Cols'
+import { Heading } from '../../components/Heading/Heading'
 import { InfoList } from '../../components/InfoList/InfoList'
 import { Link } from '../../components/Link/Link'
 import { Loading } from '../../components/Loading/Loading'
+import { Small } from '../../components/Small/Small'
 import type { Character, Episode, Location } from '../../types'
 import { locations } from '../../utils/locations'
-import styles from './CharacterDetail.module.css'
 
 interface CharacterDetailProps {
   character: Character
@@ -30,7 +31,7 @@ export const CharacterDetail = ({
       col1={<Image src={character.image} alt={character.name} />}
       col2={
         <>
-          <h1 className={styles.name}>{character.name}</h1>
+          <Heading type="h1">{character.name}</Heading>
 
           <InfoList
             list={[
@@ -49,7 +50,7 @@ export const CharacterDetail = ({
             ]}
           />
 
-          <h2 className={styles.heading}>Last known location</h2>
+          <Heading type="h2">Last known location</Heading>
 
           {locationIsLoading && <Loading />}
           {location && location !== 'unknown' ? (
@@ -74,10 +75,10 @@ export const CharacterDetail = ({
               ]}
             />
           ) : (
-            <div className={styles.list}>{location}</div>
+            <Small>{location}</Small>
           )}
 
-          <h2 className={styles.heading}>First seen in</h2>
+          <Heading type="h2">First seen in</Heading>
 
           {originIsLoading && <Loading />}
           {origin && origin !== 'unknown' ? (
@@ -102,15 +103,13 @@ export const CharacterDetail = ({
               ]}
             />
           ) : (
-            <div className={styles.list}>{origin}</div>
+            <Small>{origin}</Small>
           )}
 
-          <h2 className={styles.heading}>Appeared on</h2>
+          <Heading type="h2">Appeared on</Heading>
 
           {episodes ? (
-            <div className={styles.list}>
-              {episodes.map((e) => e.name).join(', ')}.
-            </div>
+            <Small>{episodes.map((e) => e.name).join(', ')}.</Small>
           ) : (
             <Loading />
           )}

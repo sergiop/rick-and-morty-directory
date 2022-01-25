@@ -1,11 +1,13 @@
+import { Link as RouterLink } from 'react-router-dom'
+
 import { Image } from '../../components/Avatar/Avatar'
 import { Card } from '../../components/Card/Card'
 import { Cols } from '../../components/Cols/Cols'
+import { Heading } from '../../components/Heading/Heading'
 import { InfoList } from '../../components/InfoList/InfoList'
 import { Link } from '../../components/Link/Link'
 import type { Character } from '../../types'
 import { locations } from '../../utils/locations'
-import styles from './CharacterItem.module.css'
 
 interface CharacterItemProps {
   character: Character
@@ -21,7 +23,12 @@ export const CharacterItem = ({ character }: CharacterItemProps) => {
         col1={<Image src={image} alt={name} />}
         col2={
           <>
-            <h2 className={styles.name}>{name}</h2>
+            <Heading type="h1">
+              <RouterLink to={locations.character(id)} state={character}>
+                {name}
+              </RouterLink>
+            </Heading>
+
             <InfoList
               list={[
                 {
