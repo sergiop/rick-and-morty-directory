@@ -1,7 +1,7 @@
 # Rick and Morty Characters Directory
 
-This app shows the Rick and Morty character list using [The Rick and Morty API
-](https://rickandmortyapi.com/)
+This app shows the Rick and Morty characters list and detail using [The Rick and Morty API
+](https://rickandmortyapi.com/). Made 100% with React, Typescript and love. Just for fun.
 
 You can play with a live demo here: [https://rick-and-morty-directory.netlify.app/](https://rick-and-morty-directory.netlify.app/)
 
