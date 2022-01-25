@@ -3,10 +3,6 @@
   flex-flow: column nowrap;
 }
 
-.col1 {
-  margin-right: 1rem;
-}
-
 .col2 {
   flex: 1 auto;
 }
@@ -14,5 +10,9 @@
 @media only screen and (min-width: 450px) {
   .row {
     flex-flow: row nowrap;
+  }
+
+  .col1 {
+    margin-right: 1.5rem;
   }
 }
