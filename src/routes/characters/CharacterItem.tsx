@@ -20,7 +20,11 @@ export const CharacterItem = ({ character }: CharacterItemProps) => {
   return (
     <Card>
       <Cols
-        col1={<Image src={image} alt={name} />}
+        col1={
+          <RouterLink to={locations.character(id)} state={character}>
+            <Image src={image} alt={name} />
+          </RouterLink>
+        }
         col2={
           <>
             <Heading type="h1">
