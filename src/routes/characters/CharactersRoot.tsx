@@ -1,7 +1,7 @@
 import useInfiniteScroll from 'react-infinite-scroll-hook'
 
 import { Loading } from '../../components/Loading/Loading'
-import { useDataCharacters } from '../../hooks/useDataCharacters'
+import { useDataCharacters } from '../../hooks'
 import { CharacterItem } from './CharacterItem'
 
 export const CharactersRoot = () => {

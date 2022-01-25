@@ -2,10 +2,12 @@ import { useLocation, useParams } from 'react-router-dom'
 
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { Loading } from '../../components/Loading/Loading'
-import { useDataCharacter } from '../../hooks/useDataCharacter'
-import { useDataEpisodes } from '../../hooks/useDataEpisodes'
-import { useDataLocation } from '../../hooks/useDataLocation'
-import { useDataOrigin } from '../../hooks/useDataOrigin'
+import {
+  useDataCharacter,
+  useDataEpisodes,
+  useDataLocation,
+  useDataOrigin,
+} from '../../hooks'
 import type { Character } from '../../types'
 import { locations } from '../../utils/locations'
 import { CharacterDetail } from './CharacterDetail'
