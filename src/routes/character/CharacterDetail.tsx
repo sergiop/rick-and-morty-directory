@@ -1,4 +1,5 @@
 import { Image } from '../../components/Avatar/Avatar'
+import { BulletList } from '../../components/BulletList/BulletList'
 import { Card } from '../../components/Card/Card'
 import { Cols } from '../../components/Cols/Cols'
 import { Heading } from '../../components/Heading/Heading'
@@ -109,7 +110,18 @@ export const CharacterDetail = ({
           <Heading type="h2">Appeared on</Heading>
 
           {episodes ? (
-            <Small>{episodes.map((e) => e.name).join(', ')}.</Small>
+            <Small>
+              <BulletList
+                list={episodes.map((e) => (
+                  <>
+                    {e.name}{' '}
+                    <small>
+                      <b>({e.episode})</b>
+                    </small>
+                  </>
+                ))}
+              />
+            </Small>
           ) : (
             <Loading />
           )}

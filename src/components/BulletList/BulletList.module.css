@@ -1,0 +1,10 @@
+.list {
+  padding-left: .6rem;
+  margin: 0 0 .8rem;
+  line-height: 1.2;
+}
+
+.list li {
+  padding: .125rem 0 .125rem .6rem;
+  list-style-type: "-";
+}
