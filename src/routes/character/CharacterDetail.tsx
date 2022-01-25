@@ -9,13 +9,20 @@ import styles from './CharacterDetail.module.css'
 
 interface CharacterDetailProps {
   character: Character
-  location?: Location
-  origin?: Location
+  location?: Location | 'unknown'
+  locationIsLoading: boolean
+  origin?: Location | 'unknown'
+  originIsLoading: boolean
   episodes?: Episode[]
 }
 
 export const CharacterDetail = ({
-  character, location, origin, episodes,
+  character,
+  location,
+  locationIsLoading,
+  origin,
+  originIsLoading,
+  episodes,
 }: CharacterDetailProps) => (
   <Card>
     <div className={styles.row}>
@@ -24,6 +31,7 @@ export const CharacterDetail = ({
       </div>
       <div className={styles.content}>
         <h1 className={styles.name}>{character.name}</h1>
+
         <InfoList
           list={[
             {
@@ -42,7 +50,9 @@ export const CharacterDetail = ({
         />
 
         <h2 className={styles.heading}>Last known location</h2>
-        {location ? (
+
+        {locationIsLoading && <Loading />}
+        {location && location !== 'unknown' ? (
           <InfoList
             list={[
               {
@@ -64,11 +74,13 @@ export const CharacterDetail = ({
             ]}
           />
         ) : (
-          <Loading />
+          <div className={styles.list}>{location}</div>
         )}
 
         <h2 className={styles.heading}>First seen in</h2>
-        {origin ? (
+
+        {originIsLoading && <Loading />}
+        {origin && origin !== 'unknown' ? (
           <InfoList
             list={[
               {
@@ -90,12 +102,13 @@ export const CharacterDetail = ({
             ]}
           />
         ) : (
-          <Loading />
+          <div className={styles.list}>{origin}</div>
         )}
 
         <h2 className={styles.heading}>Appeared on</h2>
+
         {episodes ? (
-          <div className={styles.episodes}>
+          <div className={styles.list}>
             {episodes.map((e) => e.name).join(', ')}
             .
           </div>

@@ -17,8 +17,13 @@ export const CharacterRoot = () => {
   const { characterId } = useParams<'characterId'>()
   const { state } = useLocation() as RouterLocation
   const [character, setCharacter] = useState<Character>()
-  const [origin, setOrigin] = useState<Location>()
-  const [location, setLocation] = useState<Location>()
+
+  const [location, setLocation] = useState<Location | 'unknown'>()
+  const [locationIsLoading, setLocationIsLoading] = useState(false)
+
+  const [origin, setOrigin] = useState<Location | 'unknown'>()
+  const [originIsLoading, setOriginIsLoading] = useState(false)
+
   const [episodes, setEpisodes] = useState<Episode[]>()
 
   useEffect(() => {
@@ -34,19 +39,31 @@ export const CharacterRoot = () => {
 
   useEffect(() => {
     if (character) {
-      get<Location>(`/location/${getLocationId(character.location.url)}`)
-        .then((data) => {
-          setLocation(data)
-        })
+      if (character.location.url) {
+        setLocationIsLoading(true)
+        get<Location>(`/location/${getLocationId(character.location.url)}`)
+          .then((data) => {
+            setLocation(data)
+            setLocationIsLoading(false)
+          })
+      } else {
+        setLocation('unknown')
+      }
     }
   }, [character])
 
   useEffect(() => {
     if (character) {
-      get<Location>(`/location/${getLocationId(character.location.url)}`)
-        .then((data) => {
-          setOrigin(data)
-        })
+      if (character.origin.url) {
+        setOriginIsLoading(true)
+        get<Location>(`/location/${getLocationId(character.origin.url)}`)
+          .then((data) => {
+            setOrigin(data)
+            setOriginIsLoading(false)
+          })
+      } else {
+        setOrigin('unknown')
+      }
     }
   }, [character])
 
@@ -85,7 +102,9 @@ export const CharacterRoot = () => {
       <CharacterDetail
         character={character}
         location={location}
+        locationIsLoading={locationIsLoading}
         origin={origin}
+        originIsLoading={originIsLoading}
         episodes={episodes}
       />
     </>
