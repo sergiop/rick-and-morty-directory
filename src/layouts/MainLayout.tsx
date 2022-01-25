@@ -8,9 +8,9 @@ export const MainLayout = ({ content }: MainLayoutProps) => (
   <>
     <header className={styles.header}>
       <h1 className={styles.title}>
-        The Rick and Morty Characters
+        The Rick and Morty
         {' '}
-        <span>Directory</span>
+        <span>Characters Directory</span>
       </h1>
     </header>
 
