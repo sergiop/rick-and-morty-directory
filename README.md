@@ -3,6 +3,8 @@
 This app shows the Rick and Morty character list using [The Rick and Morty API
 ](https://rickandmortyapi.com/)
 
+You can play with a live demo here: [https://rick-and-morty-directory.netlify.app/](https://rick-and-morty-directory.netlify.app/)
+
 ## Development
 
 ### Prerequisites
