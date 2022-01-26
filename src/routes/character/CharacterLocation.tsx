@@ -1,7 +1,4 @@
-import { Heading } from '../../components/Heading/Heading'
-import { InfoList } from '../../components/InfoList/InfoList'
-import { Loading } from '../../components/Loading/Loading'
-import { Small } from '../../components/Small/Small'
+import { Heading, InfoList, Loading, Small } from '../../components'
 import { useDataLocation } from '../../hooks'
 import type { Character } from '../../types'
 import { fetchStatus } from '../../utils/utils'

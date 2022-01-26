@@ -1,11 +1,13 @@
-import { Link as RouterLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import { Image } from '../../components/Avatar/Avatar'
-import { Card } from '../../components/Card/Card'
-import { Cols } from '../../components/Cols/Cols'
-import { Heading } from '../../components/Heading/Heading'
-import { InfoList } from '../../components/InfoList/InfoList'
-import { Link } from '../../components/Link/Link'
+import {
+  Avatar,
+  ButtonLink,
+  Card,
+  Cols,
+  Heading,
+  InfoList,
+} from '../../components'
 import type { Character } from '../../types'
 import { locations } from '../../utils/locations'
 
@@ -21,16 +23,16 @@ export const CharacterItem = ({ character }: CharacterItemProps) => {
     <Card>
       <Cols
         col1={
-          <RouterLink to={locations.character(id)} state={character}>
-            <Image src={image} alt={name} />
-          </RouterLink>
+          <Link to={locations.character(id)} state={character}>
+            <Avatar src={image} alt={name} />
+          </Link>
         }
         col2={
           <>
             <Heading type="h1">
-              <RouterLink to={locations.character(id)} state={character}>
+              <Link to={locations.character(id)} state={character}>
                 {name}
-              </RouterLink>
+              </Link>
             </Heading>
 
             <InfoList
@@ -58,9 +60,9 @@ export const CharacterItem = ({ character }: CharacterItemProps) => {
               ]}
             />
 
-            <Link to={locations.character(id)} state={character}>
+            <ButtonLink to={locations.character(id)} state={character}>
               Details
-            </Link>
+            </ButtonLink>
           </>
         }
       />

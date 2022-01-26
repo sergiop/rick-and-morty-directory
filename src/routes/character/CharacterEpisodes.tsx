@@ -1,7 +1,4 @@
-import { BulletList } from '../../components/BulletList/BulletList'
-import { Heading } from '../../components/Heading/Heading'
-import { Loading } from '../../components/Loading/Loading'
-import { Small } from '../../components/Small/Small'
+import { BulletList, Heading, Loading, Small } from '../../components'
 import { useDataEpisodes } from '../../hooks'
 import type { Character } from '../../types'
 import { fetchStatus } from '../../utils/utils'

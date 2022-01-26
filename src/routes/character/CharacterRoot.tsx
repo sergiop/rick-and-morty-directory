@@ -1,13 +1,15 @@
 import { useLocation, useParams } from 'react-router-dom'
 
-import { Image } from '../../components/Avatar/Avatar'
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
-import { Card } from '../../components/Card/Card'
-import { Cols } from '../../components/Cols/Cols'
-import { Heading } from '../../components/Heading/Heading'
-import { InfoList } from '../../components/InfoList/InfoList'
-import { Link } from '../../components/Link/Link'
-import { Loading } from '../../components/Loading/Loading'
+import {
+  Avatar,
+  Breadcrumbs,
+  ButtonLink,
+  Card,
+  Cols,
+  Heading,
+  InfoList,
+  Loading,
+} from '../../components'
 import { useDataCharacter } from '../../hooks'
 import type { Character } from '../../types'
 import { locations } from '../../utils/locations'
@@ -46,7 +48,7 @@ export const CharacterRoot = () => {
 
             <Card>
               <Cols
-                col1={<Image src={character.image} alt={character.name} />}
+                col1={<Avatar src={character.image} alt={character.name} />}
                 col2={
                   <>
                     <Heading type="h1">{character.name}</Heading>
@@ -72,7 +74,9 @@ export const CharacterRoot = () => {
                     <CharacterOrigin character={character} />
                     <CharacterEpisodes character={character} />
 
-                    <Link to={locations.characters}>Back to index</Link>
+                    <ButtonLink to={locations.characters}>
+                      Back to index
+                    </ButtonLink>
                   </>
                 }
               />

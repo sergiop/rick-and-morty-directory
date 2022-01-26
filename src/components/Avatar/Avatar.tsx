@@ -1,10 +1,10 @@
 import styles from './Avatar.module.css'
 
-interface ImageProps {
+interface AvatarProps {
   src: string
   alt: string
 }
 
-export const Image = ({ src, alt }: ImageProps) => (
+export const Avatar = ({ src, alt }: AvatarProps) => (
   <img className={styles.image} src={src} alt={alt} />
 )
