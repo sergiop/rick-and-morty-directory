@@ -1,14 +1,17 @@
 import { Heading, InfoList, Loading, Small } from '../../components'
-import { useDataOrigin } from '../../hooks'
+import { useDataLocation } from '../../hooks'
 import type { Character } from '../../types'
-import { fetchStatus } from '../../utils/utils'
+import { fetchStatus, getLocationId } from '../../utils/utils'
 
 interface CharacterOriginProps {
   character: Character
 }
 
 export const CharacterOrigin = ({ character }: CharacterOriginProps) => {
-  const { origin, originIsLoading } = useDataOrigin(character)
+  const { location, locationIsLoading } = useDataLocation(
+    character,
+    getLocationId(character.origin.url)
+  )
 
   return (
     <>
@@ -18,29 +21,29 @@ export const CharacterOrigin = ({ character }: CharacterOriginProps) => {
         {
           loading: <Loading />,
           undefined: <Small>Unknown</Small>,
-          done: origin && (
+          done: location && (
             <InfoList
               list={[
                 {
                   title: 'Name',
-                  value: origin.name,
+                  value: location.name,
                 },
                 {
                   title: 'Type',
-                  value: origin.type,
+                  value: location.type,
                 },
                 {
                   title: 'Dimension',
-                  value: origin.dimension,
+                  value: location.dimension,
                 },
                 {
                   title: 'Residents',
-                  value: origin.residents.length,
+                  value: location.residents.length,
                 },
               ]}
             />
           ),
-        }[fetchStatus(originIsLoading, origin)]
+        }[fetchStatus(locationIsLoading, location)]
       }
     </>
   )

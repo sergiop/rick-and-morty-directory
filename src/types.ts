@@ -21,11 +21,11 @@ export interface Character extends Resource {
   image: string
   location: {
     name: string
-    url: string
+    url?: string
   }
   origin: {
     name: string
-    url: string
+    url?: string
   }
   species: string
   status: 'Dead' | 'Alive' | 'unknown'

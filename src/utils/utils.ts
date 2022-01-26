@@ -1,8 +1,8 @@
 export const getCharacterEpisodesIds = (episodes: string[]): string[] =>
   episodes.map((e) => e.split('/').slice(-1)).flat()
 
-export const getLocationId = (location: string): string =>
-  location.split('/').slice(-1).toString()
+export const getLocationId = (location?: string): number | undefined =>
+  location ? parseInt(location.split('/').slice(-1).toString(), 10) : undefined
 
 export const getPageNumber = (url: string): number => {
   const u = new URL(url)

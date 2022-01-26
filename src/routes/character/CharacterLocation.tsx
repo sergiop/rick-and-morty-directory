@@ -1,14 +1,17 @@
 import { Heading, InfoList, Loading, Small } from '../../components'
 import { useDataLocation } from '../../hooks'
 import type { Character } from '../../types'
-import { fetchStatus } from '../../utils/utils'
+import { fetchStatus, getLocationId } from '../../utils/utils'
 
 interface CharacterLocationProps {
   character: Character
 }
 
 export const CharacterLocation = ({ character }: CharacterLocationProps) => {
-  const { location, locationIsLoading } = useDataLocation(character)
+  const { location, locationIsLoading } = useDataLocation(
+    character,
+    getLocationId(character.location.url)
+  )
 
   return (
     <>
