@@ -8,3 +8,14 @@ export const getPageNumber = (url: string): number => {
   const u = new URL(url)
   return Number(u.search.split('=').slice(-1))
 }
+
+export const fetchStatus = <T>(isLoading: boolean, data?: T) => {
+  if (isLoading) {
+    return 'loading'
+  }
+  if (data) {
+    return 'done'
+  }
+
+  return 'undefined'
+}

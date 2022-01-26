@@ -8,16 +8,23 @@ export const useDataCharacter = (
   characterId?: string
 ) => {
   const [character, setCharacter] = useState<Character>()
+  const [characterIsLoading, setCharacterIsLoading] = useState(false)
 
   useEffect(() => {
     if (characterFromRouteState) {
       setCharacter(characterFromRouteState)
     } else {
-      get<Character>(`/character/${characterId}`).then((data) => {
-        setCharacter(data)
-      })
+      setCharacterIsLoading(true)
+      get<Character>(`/character/${characterId}`)
+        .then((data) => {
+          setCharacter(data)
+          setCharacterIsLoading(false)
+        })
+        .catch(() => {
+          setCharacterIsLoading(false)
+        })
     }
   }, [characterId, characterFromRouteState])
 
-  return character
+  return { character, characterIsLoading }
 }

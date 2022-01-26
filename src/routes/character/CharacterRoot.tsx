@@ -1,16 +1,20 @@
 import { useLocation, useParams } from 'react-router-dom'
 
+import { Image } from '../../components/Avatar/Avatar'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
+import { Card } from '../../components/Card/Card'
+import { Cols } from '../../components/Cols/Cols'
+import { Heading } from '../../components/Heading/Heading'
+import { InfoList } from '../../components/InfoList/InfoList'
+import { Link } from '../../components/Link/Link'
 import { Loading } from '../../components/Loading/Loading'
-import {
-  useDataCharacter,
-  useDataEpisodes,
-  useDataLocation,
-  useDataOrigin,
-} from '../../hooks'
+import { useDataCharacter } from '../../hooks'
 import type { Character } from '../../types'
 import { locations } from '../../utils/locations'
-import { CharacterDetail } from './CharacterDetail'
+import { fetchStatus } from '../../utils/utils'
+import { CharacterEpisodes } from './CharacterEpisodes'
+import { CharacterLocation } from './CharacterLocation'
+import { CharacterOrigin } from './CharacterOrigin'
 
 interface RouterLocation {
   state?: Character
@@ -19,36 +23,63 @@ interface RouterLocation {
 export const CharacterRoot = () => {
   const { characterId } = useParams<'characterId'>()
   const { state } = useLocation() as RouterLocation
+  const { character, characterIsLoading } = useDataCharacter(state, characterId)
 
-  const character = useDataCharacter(state, characterId)
-  const { location, locationIsLoading } = useDataLocation(character)
-  const { origin, originIsLoading } = useDataOrigin(character)
-  const episodes = useDataEpisodes(character)
+  return {
+    loading: <Loading />,
+    undefined: <Card>No character found.</Card>,
+    done: (
+      <div>
+        {character && (
+          <>
+            <Breadcrumbs
+              breadcrumbs={[
+                {
+                  label: 'Index',
+                  to: locations.characters,
+                },
+                {
+                  label: character.name,
+                },
+              ]}
+            />
 
-  return character ? (
-    <>
-      <Breadcrumbs
-        breadcrumbs={[
-          {
-            label: 'Index',
-            to: locations.characters,
-          },
-          {
-            label: character.name,
-          },
-        ]}
-      />
+            <Card>
+              <Cols
+                col1={<Image src={character.image} alt={character.name} />}
+                col2={
+                  <>
+                    <Heading type="h1">{character.name}</Heading>
 
-      <CharacterDetail
-        character={character}
-        location={location}
-        locationIsLoading={locationIsLoading}
-        origin={origin}
-        originIsLoading={originIsLoading}
-        episodes={episodes}
-      />
-    </>
-  ) : (
-    <Loading />
-  )
+                    <InfoList
+                      list={[
+                        {
+                          title: 'Species',
+                          value: character.species,
+                        },
+                        {
+                          title: 'Gender',
+                          value: character.gender,
+                        },
+                        {
+                          title: 'Status',
+                          value: character.status,
+                        },
+                      ]}
+                    />
+
+                    <CharacterLocation character={character} />
+                    <CharacterOrigin character={character} />
+                    <CharacterEpisodes character={character} />
+
+                    <Link to={locations.characters}>Back to index</Link>
+                  </>
+                }
+              />
+            </Card>
+          </>
+        )}
+      </div>
+    ),
+  }[fetchStatus(characterIsLoading, character)]
 }
